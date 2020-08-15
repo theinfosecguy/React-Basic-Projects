@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Component</title>
+
+    <!-- Styling using Style Tag -->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .root{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="root"></div>
+
+    <!-- React & Babel CDN -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    
+    <script type="text/babel">
+
+        class HelloWorld extends React.Component{
+            render(){
+            // Styling using JSX
+            const styles={
+                color:'white',
+                textAlign:'center',
+                fontSize:50
+            }
+                return <h1 style={styles}>Let's Style our React Page</h1>
+            }
+
+        }
+
+        ReactDOM.render(
+            <HelloWorld/>,
+            document.querySelector('.root')
+        );
+    </script>
+</body>
+</html>

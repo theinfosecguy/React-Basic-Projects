@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+    <title>Create Component</title>
 </head>
 <body>
-
 
     <div class="root"></div>
 
@@ -16,10 +15,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
     
     <script type="text/babel">
+
+        class HelloWorld extends React.Component{
+            render(){
+                return <h1>Welcome to the World of Components</h1>
+            }
+        }
+
+        class Component2 extends React.Component{
+            render(){
+                return <h1>I'm just a other Component</h1>
+            }
+        }
+
+// Either enclose both of them inside a div or use the Following Method
+
         ReactDOM.render(
-            <div>
-                <h1>Hello World using React</h1>
-            </div>,
+            <React.Fragment>
+                <HelloWorld/>
+                <Component2/>
+            </React.Fragment>
+            ,
             document.querySelector('.root')
         );
     </script>

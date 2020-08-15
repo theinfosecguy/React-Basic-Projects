@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Palette in React</title>
+
+    <!-- Styling using Style Tag -->
+    <style>
+        *{
+            margin: 0;
+            padding: 0; 
+        }
+        body{
+            padding: 40px;
+        }
+        .header{
+            text-align: center;
+            color: #1b262c;
+        }
+        .card{
+            display: inline-block;
+            margin: 30px;
+            height: 200px;
+            width: 150px;
+            filter: drop-shadow(2px 2px 4px grey);  
+            background-color: rgb(226, 226, 226);
+            transition: all 0.5s ease-in-out;
+            border-radius: 10px;
+        }
+        .colorC{
+            border-radius: 10px 10px 0px 0;
+            height: 150px;
+        }
+        .labelCard{
+            text-align: center;
+            padding-top: 10%;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: rgb(94, 94, 94);
+        }
+        .card:hover{
+            cursor: pointer;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="root"></div>
+
+    <!-- React & Babel CDN -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    
+    <script type="text/babel">
+
+        class ColorCard extends React.Component{
+            render(){
+
+                const styles ={
+                    backgroundColor: this.props.ColorCode
+                }
+
+                return (
+                    <div className="colorC" style={styles}></div>
+                );
+            }
+        }
+
+        class Label extends React.Component{
+            render(){
+                return (
+                    <div className="labelCard" >{this.props.ColorCode}</div>
+                );
+            }
+        }
+
+        class Card extends React.Component{
+            render(){
+                return (
+                    <div className="card">
+                        <ColorCard 
+                            ColorCode={this.props.ColorCode}
+                            
+                        />
+                        <Label ColorCode={this.props.ColorCode}/>    
+                    </div>
+                );
+            }
+        }
+
+        class Header extends React.Component{
+            render(){
+                return (
+                    <div>
+                        <h1 className="header">Color Palette using React</h1>
+                    </div>
+                );
+            };
+        }
+        ReactDOM.render(
+            <React.Fragment>
+
+                <Header/>
+                <Card ColorCode="#ffd571"/>
+                <Card ColorCode="#bbd196"/>
+                <Card ColorCode="#56556e"/>
+                <Card ColorCode="#fabea7"/>
+                <Card ColorCode="#9cada4"/>
+                <Card ColorCode="#a35d6a"/>
+                <Card ColorCode="#ffa36c"/>
+                <Card ColorCode="#197163"/>
+                <Card ColorCode="#00b7c2"/>
+                <Card ColorCode="#8675a9"/>
+
+            </React.Fragment>,
+
+            document.querySelector('.root')
+        );
+
+        // Copy the Color Code on Click 
+
+
+    </script>
+</body>
+</html>
